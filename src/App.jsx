@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
-import Font, { Text } from 'react-font'
+
 
 function App() {
 
@@ -12,10 +10,9 @@ function App() {
     <>
       <div>
       
-        {/* <Font family='Roboto'>
-        <h2  className='font-abc'>Hello World</h2>
-        </Font> */}
-        <h2 className='font-abc'>Hello World</h2>
+
+        <h2  id='website-name'>Hello World</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat maiores corporis perferendis quam adipisci officia earum, voluptatem velit tempore ut!</p>
       </div>
     </>
   )
