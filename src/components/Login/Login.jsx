@@ -6,10 +6,11 @@ import { AuthContext } from "../provider/AuthProvider";
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
-   
+
     const [error, setError] = useState("");
-    const {SignInEmailPass} = useContext(AuthContext);
+    const { SignInEmailPass, googleSignIn } = useContext(AuthContext);
     const from = location.state?.from?.pathname || '/';
+
 
     const handleLogin = event => {
         event.preventDefault();
@@ -18,19 +19,30 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
         SignInEmailPass(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true })
+
+            })
+            .catch(error => {
+                setError(error.message);
+
+            })
+
+
+    }
+    const handleGoogleSingIn = () => {
+        
+        googleSignIn()
         .then(result => {
             const user = result.user;
             console.log(user);
             navigate(from, { replace: true })
-
         })
-        .catch(error=> {
+        .catch(error => {
             setError(error.message);
-
         })
-
-
-
     }
     return (
         <div className="w-name">
@@ -62,17 +74,24 @@ const Login = () => {
                                         className="input input-bordered"
                                         name="password" />
 
-                                    <p>   New to Sheldor Train World?
+                                    <p className="pt-5">   New to Sheldor Train World?
                                         <Link to="/register" className="text-green-600 underline decoration-orange-800">Register</Link></p>
 
                                 </div>
 
-                         
-                            <p className="text-red-800">{error}</p>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary bg-orange-400 border-none ">Login</button>
-                            </div>
+
+                                <p className="text-red-800">{error}</p>
+  
+
+                                <div className="flex flex-col w-full">
+                                    <div>                         <div className="form-control mt-6">
+                                    <button className="btn btn-primary bg-orange-400 border-none w-100">Login</button>
+                                </div></div>
+                                    
+                                </div>
                             </form>
+                            <div className="divider">OR</div>
+                                    <div className=" text-center" onClick={handleGoogleSingIn}><button>GoogleSign In</button></div>
                         </div>
                     </div>
                 </div>

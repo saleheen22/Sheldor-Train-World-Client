@@ -78,7 +78,7 @@ const Register = () => {
                                 name="photo" />
                             </div>
                               
-                                 <p>   Already have an account?
+                                 <p className='mt-5'>   Already have an account?
                                     <Link to ="/login" className="text-green-600 underline decoration-orange-800">Login</Link></p>
                                     <p className='text-red-800'>{error}</p>
                                
