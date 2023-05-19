@@ -1,12 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from '../../assets/logos/sheldor-black-transparent.png';
 import './Login.css';
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 const Login = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+   
+    const [error, setError] = useState("");
+    const {SignInEmailPass} = useContext(AuthContext);
+    const from = location.state?.from?.pathname || '/';
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        console.log(email, password);
+        SignInEmailPass(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate(from, { replace: true })
+
+        })
+        .catch(error=> {
+            setError(error.message);
+
+        })
+
+
 
     }
     return (
@@ -27,7 +50,7 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" placeholder="email"
+                                    <input type="email" placeholder="email"
                                         name="email" className="input input-bordered" />
                                 </div>
 
@@ -43,10 +66,13 @@ const Login = () => {
                                         <Link to="/register" className="text-green-600 underline decoration-orange-800">Register</Link></p>
 
                                 </div>
-                            </form>
+
+                         
+                            <p className="text-red-800">{error}</p>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary bg-orange-400 border-none ">Login</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

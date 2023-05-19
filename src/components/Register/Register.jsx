@@ -1,11 +1,14 @@
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link, Navigate } from "react-router-dom";
 import logo from '../../assets/logos/sheldor-black-transparent.png';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
+    const [error, setError] = useState("");
     const {userCreation} = useContext(AuthContext);
+    const notify = () => toast("Congratulations!!! \nRegistration Done!");
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
@@ -13,12 +16,22 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
+        form.reset();
 
         userCreation(email, password)
         .then(result=> {
             const user = result.user;
+            console.log(user);
+            alert("Congratulations!!! You have been registered.");
             
         })
+        .catch((error) => {
+            console.log(error.message);
+            setError(error.message);
+        
+        })
+        
+        
     }
     return (
         <div className="w-name">
@@ -67,6 +80,7 @@ const Register = () => {
                               
                                  <p>   Already have an account?
                                     <Link to ="/login" className="text-green-600 underline decoration-orange-800">Login</Link></p>
+                                    <p className='text-red-800'>{error}</p>
                                
                             </div>
                             <div className="form-control mt-6">
