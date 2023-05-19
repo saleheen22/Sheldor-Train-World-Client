@@ -1,9 +1,9 @@
 import './Navbar.css';
 import logo from '../../../assets/logos/white-transparent.png'
-import logo1 from '../../../assets/logos/favicon/shheldor-white.png';
+
 const Navbar = () => {
     return (
-        <div>
+        <div className='w-name'>
      <div className="navbar bg-base-100 orange">
   <div className="navbar-start">
     <div className="dropdown ">
@@ -31,7 +31,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn button border-collapse">Get started</a>
+    <a className="btn bg-orange-400 border-collapse">Get started</a>
   </div>
 </div>
         </div>

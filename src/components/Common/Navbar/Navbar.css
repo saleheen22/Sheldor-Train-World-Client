@@ -3,10 +3,12 @@
 }
 .orange{
     /* background-color: rgb(109, 186, 202); */
-    background-color: orange;
+    background-color: black;
+    /* background-color: orange; */
 }
 .button{
-    background-color: rgb(109, 186, 202);
+    /* background-color: rgb(109, 186, 202); */
+    background-color: orange;
 }
 .font{
     color: aqua;

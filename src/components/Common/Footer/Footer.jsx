@@ -1,9 +1,9 @@
-import React from 'react';
+
 import './Footer.css';
 const Footer = () => {
     return (
         <div >
-            <footer className="footer p-10 bg-base-200 text-base-content text-white">
+            <footer className="footer p-10 bg-base-200 text-base-content text-white w-name">
                 <div className='text-white'>
 
                     <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
