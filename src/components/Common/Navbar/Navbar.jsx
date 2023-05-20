@@ -1,11 +1,16 @@
 import './Navbar.css';
 import logo from '../../../assets/logos/white-transparent.png'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Result } from 'postcss';
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
     const {user, loading, logOut } = useContext(AuthContext);
     const handleLogOut = () =>{
         logOut()
@@ -16,6 +21,12 @@ const Navbar = () => {
             console.log(error);
         })
     }
+    // const addtoy = () => {
+    //     console.log("before navigate");
+        
+    //     console.log("after navigate");
+       
+    // }
     return (
         <div className='w-name'>
             <div className="navbar bg-base-100 orange">
@@ -43,11 +54,19 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-white">
-                        <li className='mx-5 font-bold'>App 1</li>
-                        <li className='mx-5  font-bold'>App 1</li>
-                        <li className='mx-5 font-bold'>App 2</li>
+                        <li className='mx-5 font-bold'><Link >
+                                Home
+                        </Link></li>
+                        <li className='mx-5  font-bold'><Link>All Toys</Link></li>
+                        <li className='mx-5 font-bold'><Link>
+                        Blog
+                        </Link></li>
                         {user && <>
-                            <li className='mx-5 font-bold'>Add a Toy</li>
+                            
+                            <li className='mx-5 font-bold'><Link to= "/addtoy">
+                            Add a Toy
+                            </Link></li>
+                            
                         <li className='mx-5 font-bold'>My Toys</li>
                         </>}
 
