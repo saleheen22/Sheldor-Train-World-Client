@@ -5,6 +5,7 @@ import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 const ShopByCategory = () => {
     const [toy, SetToy] = useState([]);
 
@@ -49,7 +50,8 @@ const ShopByCategory = () => {
                                             <Rating readOnly = {true} style={{ maxWidth: 250 }} value={bullet.rating} />
                                                 </span></p>
                                             <div className="card-actions justify-end">
-                                                <button className="btn border-none text-black bg-orange-400">View Details</button>
+                                              
+                                            <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +75,8 @@ const ShopByCategory = () => {
                                             <Rating readOnly = {true} style={{ maxWidth: 250 }} value={bullet.rating} />
                                                 </span></p>
                                             <div className="card-actions justify-end">
-                                                <button className="btn border-none text-black bg-orange-400">View Details</button>
+                                           
+                                            <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +100,8 @@ const ShopByCategory = () => {
                                             <Rating readOnly = {true} style={{ maxWidth: 250 }} value={bullet.rating} />
                                                 </span></p>
                                             <div className="card-actions justify-end">
-                                                <button className="btn border-none text-black bg-orange-400">View Details</button>
+                                          
+                                            <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>  
                                             </div>
                                         </div>
                                     </div>

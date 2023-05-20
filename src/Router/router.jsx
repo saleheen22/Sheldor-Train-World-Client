@@ -7,6 +7,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import Addtoy from "../components/Addtoy/Addtoy";
+import SingleToy from "../components/SingleToy/SingleToy";
 
   const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ import Addtoy from "../components/Addtoy/Addtoy";
         {
           path: "/addtoy",
           element: <PrivateRoute><Addtoy></Addtoy></PrivateRoute>
+        },
+        {
+          path: "toy/:id",
+          element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
+          loader: ({params})=> fetch(`http://localhost:5000/toy/${params.id}`)
         }
       ]
     },
