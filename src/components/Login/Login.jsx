@@ -22,6 +22,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                console.log(from);
                 navigate(from, { replace: true })
 
             })
