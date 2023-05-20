@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-
+import Swal from 'sweetalert2'
 const Addtoy = () => {
 
     const {user} = useContext(AuthContext);
@@ -10,16 +10,39 @@ const Addtoy = () => {
         const form = event.target;
         const name = form.name.value;
         const img  = form.pic.value;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
+        const seller_name = form.sellerName.value;
+        const seller_email = form.sellerEmail.value;
         const price = form.price.value;
         const type = form.type.value;
         const rating = form.rating.value;
-        const description = form.details.value;
-        const quantity = form.quantity.value;
+        const detailed_description = form.details.value;
+        const available_quantity = form.quantity.value;
         form.reset();
 
-        console.log(name, img, sellerEmail, sellerName, price, quantity, type, rating, description);
+        const newToy = {name, img, seller_name, seller_email, price, available_quantity, type, rating, detailed_description};
+        console.log(newToy);
+
+        fetch('http://localhost:5000/insert',
+            {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newToy)
+            }
+        )
+        .then(res=> res.json())
+        .then(data=> {
+            console.log("The data is inside the fetch function", data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success',
+                    text: "New Toy has been added successfully",
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+            }
+        })
 
     }
 
