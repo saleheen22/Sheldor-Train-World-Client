@@ -54,20 +54,24 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-white">
-                        <li className='mx-5 font-bold'><Link to= '/'>
-                                Home
-                        </Link></li>
-                        <li className='mx-5  font-bold'><Link to = "/alltoys">All Toys</Link></li>
-                        <li className='mx-5 font-bold'><Link>
+                       
+                                
+                        <Link> <li className='mx-5 font-bold'>Home</li></Link>
+
+                        <Link to = "/alltoys"> <li className='mx-5  font-bold'>All Toys</li></Link>
+                       
+                         <Link><li className='mx-5 font-bold'>
                         Blog
-                        </Link></li>
+                        </li></Link>       
+
+                        
                         {user && <>
                             
-                            <li className='mx-5 font-bold'><Link to= "/addtoy">
-                            Add a Toy
-                            </Link></li>
+                            <Link to= "/addtoy">
+                            <li className='mx-5 font-bold'>Add a Toy</li>
+                            </Link>
                             
-                        <li className='mx-5 font-bold'>My Toys</li>
+                       <Link> <li className='mx-5 font-bold'>My Toys</li></Link>
                         </>}
 
                     </ul>

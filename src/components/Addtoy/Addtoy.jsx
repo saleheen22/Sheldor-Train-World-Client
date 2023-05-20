@@ -142,7 +142,7 @@ const Addtoy = () => {
 
 
                                 <div className="form-control mt-6">
-                                    <button className="btn bg-orange-400 border-none">Login</button>
+                                    <button className="btn bg-orange-400 border-none">ADD</button>
                                 </div>
                             </form>
                         </div>
