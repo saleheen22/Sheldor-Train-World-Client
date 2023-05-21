@@ -6,7 +6,13 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const ShopByCategory = () => {
+    useEffect(()=>{
+        Aos.init();
+    },[]);
     const [toy, SetToy] = useState([]);
 
     const allbullet = toy.filter(blt => blt.type == "bullet");
@@ -19,14 +25,14 @@ const ShopByCategory = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/toy')
+        fetch('https://toy-marketplace-server-side-muntasaleheen-gmailcom.vercel.app/toy')
             .then(res => res.json())
             .then(data => SetToy(data));
     }, [])
 
 
     return (
-        <div className='text-center w-name'>
+        <div className='text-center w-name' data-aos="fade-down">
             <h1 className='p-8 text-5xl'>Toy Categories</h1>
             <Tabs selectedTabClassName="active mb-10">
                 <TabList className="text-3xl">
@@ -42,7 +48,7 @@ const ShopByCategory = () => {
                                 <>
 
                                     <div className="card card-side bg-base-100 shadow-2xl mr-10 mb-10">
-                                        <figure className='img-color'><img src={bullet.img} alt="Movie" /></figure>
+                                        <figure className='img-color'><img src={bullet?.img} alt="Movie" /></figure>
                                         <div className="card-body bg-sky-400">
                                             <h2 className="card-title">{bullet.name}</h2>
                                             <p>Price: $<span>{bullet.price}</span></p>
@@ -67,7 +73,7 @@ const ShopByCategory = () => {
                                 <>
 
                                     <div className="card card-side bg-base-100 shadow-2xl mr-10 mb-10">
-                                        <figure className='img-color'><img src={bullet.img} alt="Movie" /></figure>
+                                        <figure className='img-color'><img src={bullet?.img} alt="Movie" /></figure>
                                         <div className="card-body bg-sky-400">
                                             <h2 className="card-title">{bullet.name}</h2>
                                             <p>Price: $<span>{bullet.price}</span></p>
@@ -92,7 +98,7 @@ const ShopByCategory = () => {
                                 <>
 
                                     <div className="card card-side bg-base-100 shadow-2xl mr-10 mb-10">
-                                        <figure className='img-color'><img src={bullet.img} alt="Movie" /></figure>
+                                        <figure className='img-color'><img src={bullet?.img} alt="Movie" /></figure>
                                         <div className="card-body bg-sky-400">
                                             <h2 className="card-title">{bullet.name}</h2>
                                             <p>Price: $<span>{bullet.price}</span></p>

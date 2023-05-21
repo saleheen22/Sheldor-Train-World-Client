@@ -14,15 +14,21 @@ import img6 from '../../../assets/gallery/transparent6.png'
 // import img10 from '../../assets/gallery/transparent10.png'
 // import img11 from '../../assets/gallery/transparent11.png'
 // import img12 from '../../assets/gallery/transparent12.png'
-
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 
 import './Gallery.css';
+import { useEffect } from 'react';
 
 const Gallery = () => {
+
+    useEffect(()=>{
+        Aos.init();
+    },[])
     return (
-        <div className='pt-32'>
-            <h2 className='w-name text-center pb-24 text-7xl text-orange-400'>Our Collections</h2>
+        <div className='pt-32' data-aos="fade-right">
+            <h2 className='w-name text-center pb-24 text-7xl text-orange-400' >Our Collections</h2>
             <Carousel className='bg-orange-400 object-contain image1'>
                 <div >
                     <img src={img1} />

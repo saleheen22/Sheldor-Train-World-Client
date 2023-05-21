@@ -71,7 +71,7 @@ const Navbar = () => {
                             <li className='mx-5 font-bold'>Add a Toy</li>
                             </Link>
                             
-                       <Link> <li className='mx-5 font-bold'>My Toys</li></Link>
+                       <Link to ="/mytoys"> <li className='mx-5 font-bold'>My Toys</li></Link>
                         </>}
 
                     </ul>

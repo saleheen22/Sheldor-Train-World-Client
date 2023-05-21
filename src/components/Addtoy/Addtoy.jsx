@@ -12,17 +12,20 @@ const Addtoy = () => {
         const img  = form.pic.value;
         const seller_name = form.sellerName.value;
         const seller_email = form.sellerEmail.value;
-        const price = form.price.value;
+        const price = parseFloat(form.price.value);
+       
         const type = form.type.value;
         const rating = form.rating.value;
         const detailed_description = form.details.value;
         const available_quantity = form.quantity.value;
         form.reset();
 
+        console.log("Type of price", typeof price);
+
         const newToy = {name, img, seller_name, seller_email, price, available_quantity, type, rating, detailed_description};
         console.log(newToy);
 
-        fetch('http://localhost:5000/insert',
+        fetch('https://toy-marketplace-server-side-muntasaleheen-gmailcom.vercel.app/insert',
             {
                 method: 'POST',
                 headers: {
@@ -125,7 +128,7 @@ const Addtoy = () => {
                                     <div className="input-group">
                                         <select name="type" className="select select-bordered">
                                             <option disabled selected>Pick category</option>
-                                            <option>Bullet</option>
+                                            <option>bullet</option>
                                             <option>Steam Engine</option>
                                             <option>Disney</option>
                                         </select>
