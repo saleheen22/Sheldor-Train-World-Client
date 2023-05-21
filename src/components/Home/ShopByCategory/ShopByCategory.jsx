@@ -4,16 +4,22 @@ import '../ShopByCategory/ShopByCategory.css';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { AuthContext } from "../../provider/AuthProvider";
 
 const ShopByCategory = () => {
+    const {user}  = useContext(AuthContext);
     useEffect(()=>{
         Aos.init();
     },[]);
     const [toy, SetToy] = useState([]);
+
+    const handleView = () => {
+        alert("You have to log in first to view details");
+    }
 
     const allbullet = toy.filter(blt => blt.type == "bullet");
 
@@ -55,10 +61,21 @@ const ShopByCategory = () => {
                                             <p>Rating: <span>{bullet.rating}</span><span>
                                             <Rating readOnly = {true} style={{ maxWidth: 250 }} value={bullet.rating} />
                                                 </span></p>
-                                            <div className="card-actions justify-end">
+                               {
+                                user ? <>
+                                             <div className="card-actions justify-end">
                                               
-                                            <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>
-                                            </div>
+                                              <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>
+                                              </div>
+                                </>
+                                :
+                                <>
+                                             <div onClick={()=> handleView()} className="card-actions justify-end">
+                                              
+                                              <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>
+                                              </div>
+                                </>
+                               }
                                         </div>
                                     </div>
                                 </>
@@ -80,10 +97,20 @@ const ShopByCategory = () => {
                                             <p>Rating: <span>{bullet.rating}</span><span>
                                             <Rating readOnly = {true} style={{ maxWidth: 250 }} value={bullet.rating} />
                                                 </span></p>
-                                            <div className="card-actions justify-end">
+                            {
+                                user ? <>
+                                                <div className="card-actions justify-end">
                                            
-                                            <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>
-                                            </div>
+                                           <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>
+                                           </div>
+                                </> :
+                                <>
+                                                <div onClick={()=> handleView} className="card-actions justify-end">
+                                           
+                                           <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>
+                                           </div>
+                                </>
+                            }
                                         </div>
                                     </div>
                                 </>
@@ -105,10 +132,21 @@ const ShopByCategory = () => {
                                             <p>Rating: <span>{bullet.rating}</span><span>
                                             <Rating readOnly = {true} style={{ maxWidth: 250 }} value={bullet.rating} />
                                                 </span></p>
-                                            <div className="card-actions justify-end">
+                                {
+                                    user ? <>
+                                    
+                                    <div className="card-actions justify-end">
                                           
-                                            <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>  
-                                            </div>
+                                          <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>  
+                                          </div>
+                                    </> :
+                                    <>
+                                                <div onClick={()=> handleView()}  className="card-actions justify-end">
+                                          
+                                          <Link to={`/toy/${bullet._id}`}><button className="btn border-none text-black bg-orange-400">View Details</button></Link>  
+                                          </div>
+                                    </>
+                                }
                                         </div>
                                     </div>
                                 </>
