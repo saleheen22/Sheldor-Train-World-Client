@@ -5,12 +5,12 @@ import logo from '../../assets/logos/sheldor-black-transparent.png';
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import useTitle from '../../hooks/useTitle';
+import Swal from 'sweetalert2'
 
 const Register = () => {
     useTitle('Register');
     const [error, setError] = useState("");
     const {userCreation} = useContext(AuthContext);
-    const notify = () => toast("Congratulations!!! \nRegistration Done!");
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
@@ -24,7 +24,12 @@ const Register = () => {
         .then(result=> {
             const user = result.user;
             console.log(user);
-            alert("Congratulations!!! You have been registered.");
+            Swal.fire({
+                title: 'Success',
+                text: "You have been registered!!",
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            })
             
         })
         .catch((error) => {

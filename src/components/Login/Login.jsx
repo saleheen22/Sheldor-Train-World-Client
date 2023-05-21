@@ -94,7 +94,7 @@ const Login = () => {
                                 </div>
                             </form>
                             <div className="divider">OR</div>
-                                    <div className=" text-center" onClick={handleGoogleSingIn}><button>GoogleSign In</button></div>
+                                    <div className=" text-center" onClick={handleGoogleSingIn}><button className="btn bg-orange-400">GoogleSign In</button></div>
                         </div>
                     </div>
                 </div>
