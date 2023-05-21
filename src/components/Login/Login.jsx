@@ -3,7 +3,9 @@ import logo from '../../assets/logos/sheldor-black-transparent.png';
 import './Login.css';
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 const Login = () => {
+    useTitle('Login')
     const location = useLocation();
     const navigate = useNavigate();
 

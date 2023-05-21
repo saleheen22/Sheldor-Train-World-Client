@@ -3,8 +3,10 @@ import { AuthContext } from "../provider/AuthProvider";
 import { Rating } from "@smastrom/react-rating";
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const Mytoys = () => {
+    useTitle('My Toys')
     const { user } = useContext(AuthContext);
     const [isSort, setIsSort]= useState(false);
     const [sortValue, setSortValue] = useState(1);

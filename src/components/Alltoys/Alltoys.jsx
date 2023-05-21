@@ -2,8 +2,10 @@ import { Link, useLoaderData } from 'react-router-dom';
 import './Alltoys.css'
 import { AuthContext } from '../provider/AuthProvider';
 import { useState } from 'react';
+import useTitle from '../../hooks/useTitle';
 
 const Alltoys = () => {
+    useTitle('All Toys');
     const allToys = useLoaderData(AuthContext);
 
 

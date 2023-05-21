@@ -4,8 +4,10 @@ import { Link, Navigate } from "react-router-dom";
 import logo from '../../assets/logos/sheldor-black-transparent.png';
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register');
     const [error, setError] = useState("");
     const {userCreation} = useContext(AuthContext);
     const notify = () => toast("Congratulations!!! \nRegistration Done!");
