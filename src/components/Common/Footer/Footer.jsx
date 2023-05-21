@@ -1,19 +1,22 @@
-
+import logo from '../../../assets/logos/favicon/log-white.png'
 import './Footer.css';
 const Footer = () => {
     return (
         <div >
-            <footer className="footer p-10 bg-base-200 text-base-content text-white w-name">
+            <footer className="footer p-10 bg-base-200 ft text-base-content text-white w-name">
                 <div className='text-white'>
 
-                    <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                    <img src={logo} alt="" />
+
+                    <p>Sheldor Train World.<br />Providing reliable train toy since 2019</p>
+                    <p>@CopyRight</p>
                 </div>
                 <div>
-                    <span className="footer-title">Services</span>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <span className="footer-title">Social Media Links</span>
+                    <a className="link link-hover">Facebook</a>
+                    <a className="link link-hover">Instagram</a>
+                    <a className="link link-hover">Twitter</a>
+                    <a className="link link-hover">Snap Chat</a>
                 </div>
                 <div>
                     <span className="footer-title">Company</span>
