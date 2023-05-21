@@ -12,6 +12,7 @@ import NotFound from "../components/NotFound/NotFound";
 import Alltoys from "../components/Alltoys/Alltoys";
 import Mytoys from "../components/Mytoys/Mytoys";
 import UpdateToy from "../components/UpdateToy/UpdateToy";
+import Blog from "../components/Blog/Blog";
 
   const router = createBrowserRouter([
     {
@@ -37,12 +38,12 @@ import UpdateToy from "../components/UpdateToy/UpdateToy";
         {
           path: "toy/:id",
           element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
-          loader: ({params})=> fetch(`https://toy-marketplace-server-side-muntasaleheen-gmailcom.vercel.app/toy/${params.id}`)
+          loader: ({params})=> fetch(`https://toy-marketplace-server-side-eight.vercel.app/toy/${params.id}`)
         },
         {
           path: "/alltoys",
           element: <Alltoys></Alltoys>,
-          loader: () => fetch('https://toy-marketplace-server-side-muntasaleheen-gmailcom.vercel.app/getall')
+          loader: () => fetch('https://toy-marketplace-server-side-eight.vercel.app/getall')
         },
         {
           path: "/mytoys",
@@ -51,7 +52,11 @@ import UpdateToy from "../components/UpdateToy/UpdateToy";
         {
           path: '/update/:id',
           element: <UpdateToy></UpdateToy>,
-          loader: ({params})=> fetch(`https://toy-marketplace-server-side-muntasaleheen-gmailcom.vercel.app/toy/${params.id}`)
+          loader: ({params})=> fetch(`https://toy-marketplace-server-side-eight.vercel.app/toy/${params.id}`)
+        },
+        {
+          path:'/blog',
+          element: <Blog></Blog>
         }
       ],
  

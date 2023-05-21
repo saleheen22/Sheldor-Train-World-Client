@@ -2,13 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { Rating } from "@smastrom/react-rating";
 import Swal from 'sweetalert2'
+import { PacmanLoader } from 'react-spinners';
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 
 const Mytoys = () => {
     useTitle('My Toys')
-    const { user } = useContext(AuthContext);
-    const [isSort, setIsSort]= useState(false);
+    const { user, loading } = useContext(AuthContext);
+    const [isSort, setIsSort] = useState(false);
     const [sortValue, setSortValue] = useState(1);
 
     const [myToys, setMyToys] = useState([]);
@@ -21,17 +22,17 @@ const Mytoys = () => {
             })
     }, [])
 
-    
 
-    const handleSort = (id)=> {
+
+    const handleSort = (id) => {
         console.log(id);
         setIsSort(true);
         setSortValue(id);
         fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            setMyToys(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                setMyToys(data);
+            })
 
 
 
@@ -69,21 +70,24 @@ const Mytoys = () => {
     }
     return (
         <div>
-                    
 
-        <div>
-  
-        
-        <div className="my-10 mx-10">
-            <h1>Please Click the appropriate button to  sort the toys based on price </h1>
-            <button onClick={() => handleSort(1)} className="btn bg-orange-500 mx-5">Ascending</button>
-            <button onClick={() => handleSort(-1)} className="btn">Descending</button>
-            <p className="text-2xl"><span>Note:</span><span className="text-red-500">[Please Click the sorting button Multiple times if not working on first click]</span></p>
-        </div>
 
-        </div>
+            <div>
 
-            <div className="overflow-x-auto w-full">
+
+                <div className="my-10 mx-10">
+                    <h1>Please Click the appropriate button to  sort the toys based on price </h1>
+                    <button onClick={() => handleSort(1)} className="btn bg-orange-500 mx-5">Ascending</button>
+                    <button onClick={() => handleSort(-1)} className="btn">Descending</button>
+                    <p className="text-2xl"><span>Note:</span><span className="text-red-500">[Please Click the sorting button Multiple times if not working on first click]</span></p>
+                </div>
+
+            {
+                loading? <>
+                <PacmanLoader color="rgba(54, 215, 183, 1)" />
+                </> :
+                <>
+                         <div className="overflow-x-auto w-full">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead >
@@ -154,6 +158,13 @@ const Mytoys = () => {
 
                 </table>
             </div>
+                </>
+            }
+
+
+            </div>
+
+       
         </div>
     );
 };

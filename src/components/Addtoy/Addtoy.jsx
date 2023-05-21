@@ -27,7 +27,7 @@ const Addtoy = () => {
         const newToy = {name, img, seller_name, seller_email, price, available_quantity, type, rating, detailed_description};
         console.log(newToy);
 
-        fetch('https://toy-marketplace-server-side-muntasaleheen-gmailcom.vercel.app/insert',
+        fetch('https://toy-marketplace-server-side-eight.vercel.app/insert',
             {
                 method: 'POST',
                 headers: {

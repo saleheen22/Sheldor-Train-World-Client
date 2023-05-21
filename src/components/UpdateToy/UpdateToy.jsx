@@ -17,7 +17,7 @@ const UpdateToy = () => {
 
         const updatedToy = {_id, price, available_quantity, detailed_description, name, seller_email, seller_name, img, rating, type}
 
-        fetch(`https://toy-marketplace-server-side-muntasaleheen-gmailcom.vercel.app/toy/${_id}`,
+        fetch(`https://toy-marketplace-server-side-eight.vercel.app/toy/${_id}`,
         {
             method: 'PUT',
 
