@@ -16,10 +16,10 @@ const Order = () => {
     return (
         <div data-aos="fade-left">
           <div className='my-16'>
-          <h2 className='text-4xl text-center  text-orange-500'> <span className='mx-5'>Discount!!!</span><span className='mx-5'>Discount!!!</span><span className='mx-5'>Discount!!!</span></h2>
+          <h2 className='text-6xl text-center  text-orange-500'> <span className='mx-5'>Discount!!!</span><span className='mx-5'>Discount!!!</span><span className='mx-5'>Discount!!!</span></h2>
           </div>
 
-            <div className='grid md:grid-cols-2 md:gap-6  bg-yellow-400'>
+            <div className='grid md:grid-cols-2 md:gap-6  bg-yellow-400 '>
                 <div className='pt-28 ps-9 pb-16'>
                   <h2 className='text-4xl text-center p-10 '>Special 15% Discount on All Products!!!!!</h2>
                   <p className='text-2xl'>The offer is valid for limited time. Grab the offer and Order Now!!!!</p>
