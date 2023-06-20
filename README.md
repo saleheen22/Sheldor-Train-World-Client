@@ -1,4 +1,4 @@
-![Sheldor Train World](/public/logo/black-tansparentBg.png "This is the logo of my website Sheldor Traiin World").
+![Sheldor Train World](/public/sheldor-black-transparent.png "This is the logo of my website Sheldor Traiin World").
 
 ## The live link
 [Sheldor Train](https://toymarketplace-ea298.web.app/ "Sheldor Train World live link").
