@@ -20,7 +20,7 @@ const Mytoys = () => {
             .then(data => {
                 setMyToys(data);
             })
-    }, [])
+    }, [sortValue])
 
 
 
